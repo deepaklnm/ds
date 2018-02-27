@@ -6,18 +6,14 @@ public class CoinChangeProblem {
 		
 		int[] t = new int[n+1];
 		t[0] = 1;
-		int j = 1;
-		
-		if(n == 0)
-			return 1;
 		
 		for(int i = 0; i < numberOfCoins; i++) {
-			for(j = a[i]; j <= n; j++) {
+			for(int j = a[i]; j <= n; j++) {
 				t[j] = t[j] + t[j - a[i]];
 			}
 		}
 		
-		return t[j-1];
+		return t[n];
 	}
 
 	public static void main(String[] args) {
